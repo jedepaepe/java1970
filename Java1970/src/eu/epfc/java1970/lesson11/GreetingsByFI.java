@@ -12,5 +12,6 @@ package eu.epfc.java1970.lesson11;
 public class GreetingsByFI {
     public static void main(String[] args) {
         System.out.println("Greetings from Faisal");
+        System.out.println("End of the Lesson");
     }
 }
