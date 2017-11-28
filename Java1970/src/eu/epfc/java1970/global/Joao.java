@@ -12,5 +12,7 @@ package eu.epfc.java1970.global;
 public class Joao {
     public static void main(String[] args) {
         System.out.println("Hello Joao !");
+        System.out.println("Hello de la maison !");
+        
     }
 }
