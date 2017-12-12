@@ -51,7 +51,7 @@ public class JavaLesson13_2017_12_12 {
 
                 break;
             case 2 :
-                System.out.println("Même tableau");
+                System.out.println("Mêmek tableau");
                 // attention copy de REF
                 double[] ds = {1,2,3,};
                 //double[] idem=ds; ce truc ne crée pas un nouveua tableau
