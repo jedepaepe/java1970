@@ -22,5 +22,22 @@ public class DemoRecette {
         categoryList[0] = legume;
         categoryList[1] = fruit;
         categoryList[2] = viande;
+        
+        // en notation courte
+        categoryList = new Category[] {legume, fruit, viande};
+                
+        // ici on crée les catégoies en même temps
+        categoryList = new Category[] {
+            new Category("légume"),
+            new Category("fruit"),
+            new Category("viande")
+        };
     }
 }
+
+
+
+
+
+
+
