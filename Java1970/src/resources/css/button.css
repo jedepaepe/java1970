@@ -1,0 +1,9 @@
+/* 
+    Example de feuille de style pour application JavaFx
+    Author     : jedepaepe@epfc.eu
+*/
+
+.button {                           /* .button est le sélecteur : il sélectionne tous les éléments de type button */
+    -fx-background-color: red;      /* mettre le background-color en rouge */
+    -fx-text-fill: white;           /* mettre le texte en blanc */
+}
