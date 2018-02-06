@@ -7,9 +7,7 @@ package eu.epfc.java1970.lesson19.heritage.filesystem;
 public class DemoFS {
 
     public static void main(String[] args) {
-        File file = new File();
-        file.name = "readme.txt";
-        file.size = 100_000_000;
+        File file = new File(100_000_000, "readme.txt");
         
         Directory directory = new Directory();
         directory.name = "root";
