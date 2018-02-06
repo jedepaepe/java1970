@@ -19,19 +19,25 @@ import javafx.stage.Stage;
 public class PaneDemo extends Application {
 
     @Override
-    public void start(Stage stage) {
-        Button buttonOK = new Button("OK");
-        Text text = new Text("Voici un text");
+    public void start(Stage stage) {            // stage (fenêtre) créé par JavaFx
+        Text text = new Text("Voici un text");  // crée le text:Text
         text.setFill(Color.BLUE);
-        TextField textField = new TextField();
+        TextField textField = new TextField();  // crée le textField:TextField (zone de saisie)
 
-        VBox vbox = new VBox(text, textField);
-        buttonOK.setAlignment(Pos.CENTER);
+        VBox vbox = new VBox(text, textField);  // crée le layout vbox:VBox
+                                                // crée le lien entre vbox:VBox et text:Text
+                                                // crée le lien entre vbox:VBox et textField:TextField
+
+        Button buttonOK = new Button("OK");     // crée le buttonOK:Button
+        buttonOK.setAlignment(Pos.CENTER); 
         //pane.setSpacing(10);
-        FlowPane flowPane = new FlowPane(buttonOK, vbox);
+        FlowPane flowPane = new FlowPane(buttonOK, vbox);   // crée un flowPane:FlowPane, layout où les éléments se dépose les derrières les autres, comme lorsqu'on écrit sur une feuille
+                                                // crée le lien entre flowPane:FlowPane et buttonOK:Button
+                                                // crée le lien entre flowPane:FlowPane et vbox:VBox (un container est placé dans un autre container)
         FlowPane.setMargin(buttonOK, new Insets(30, 60, 30, 60));
-        Scene scene = new Scene(flowPane);
-        stage.setScene(scene);
+        Scene scene = new Scene(flowPane);      // crée la scene:Scene
+                                                // créé le lien entre scene:Scene et flowPane:FlowPane
+        stage.setScene(scene);                  // crée le lien entre stage:Stage et scene:Scene
         stage.show();
     }
 
