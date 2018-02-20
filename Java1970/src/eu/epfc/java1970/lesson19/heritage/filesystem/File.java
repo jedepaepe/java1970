@@ -8,12 +8,10 @@ package eu.epfc.java1970.lesson19.heritage.filesystem;
 public class File extends Node {
     double size = 0;
 
-    public File(double size, String name) {
-        // code
+    public File(String name, double size) {
+        super(name);
+        this.size = size;
     }
-
-    
-    
 
     @Override
     public String toString() {
