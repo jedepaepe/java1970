@@ -9,21 +9,31 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**
- * Simple battle ship identique à BattleShip4 mais refactorisé
+ * Simple battle ship identique à BattleShip5 mais refactorisé
  */
-public class BattleShip5 extends Application {
+public class BattleShip6 extends Application {
 
-    private int columnNumber = 10;
-    private int lineNumber = 10;
-    private double size = 50.0;
-    private int hgap = 2;
-    private int vgap = 2;
-    private Color backgroundColor = Color.BEIGE;
-    private Color nothingColor = Color.BLUE;
-    private Color shipColor = Color.BLACK;
-    private Color shipFireColor = Color.RED;
-    private Color fireColor = Color.YELLOW;
-    private BattleBoard battleBoard = new BattleBoard(columnNumber, lineNumber);
+    /**
+     * Rassembler les éléments de configuration dans une classe
+     */
+    private static class Config {
+        private static int columnNumber = 10;
+        private static int lineNumber = 10;
+        private static double size = 50.0;
+        private static int hgap = 2;
+        private static int vgap = 2;
+        private static Color backgroundColor = Color.BEIGE;
+        private static Color nothingColor = Color.BLUE;
+        private static Color shipColor = Color.BLACK;
+        private static Color shipFireColor = Color.RED;
+        private static Color fireColor = Color.YELLOW;
+    }
+    
+    class Cell extends Rectangle {
+        
+    }
+    
+    private BattleBoard battleBoard = new BattleBoard(Config.columnNumber, Config.lineNumber);
 
     public static void main(String[] args) {
         launch(args);
@@ -34,31 +44,38 @@ public class BattleShip5 extends Application {
         GridPane gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER);
 //        gridPane.setPadding(new Insets(10));
-        gridPane.setHgap(hgap);
-        gridPane.setVgap(vgap);
+        gridPane.setHgap(Config.hgap);
+        gridPane.setVgap(Config.vgap);
 
-        for (int x = 0; x < columnNumber; x++) {
-            for (int y = 0; y < lineNumber; y++) {
+        for (int x = 0; x < Config.columnNumber; x++) {
+            for (int y = 0; y < Config.lineNumber; y++) {
                 BattleCell battleCell = battleBoard.getCell(x, y);
                 Color color = getCellColor(battleCell.isShip, battleCell.isFire);
-                Rectangle rectangle = new Rectangle(size, size, color);
+                Rectangle rectangle = new Rectangle(Config.size, Config.size, color);
                 gridPane.add(rectangle, x, y);
+                
             }
         }
-        
+
         // code classique
         Scene scene = new Scene(gridPane);
-        scene.setFill(backgroundColor);
+        scene.setFill(Config.backgroundColor);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Battle Ship");
         primaryStage.show();
     }
-    
+
     private Color getCellColor(boolean isShip, boolean isFire) {
-        if(isShip && ! isFire) return shipColor;
-        if(isShip && isFire) return shipFireColor;
-        if(!isShip && isFire) return fireColor;
-        return nothingColor;
+        if (isShip && !isFire) {
+            return Config.shipColor;
+        }
+        if (isShip && isFire) {
+            return Config.shipFireColor;
+        }
+        if (!isShip && isFire) {
+            return Config.fireColor;
+        }
+        return Config.nothingColor;
     }
 
     class BattleBoard {
@@ -69,24 +86,24 @@ public class BattleShip5 extends Application {
         int getXLength() {
             return cellList[0].length;
         }
-        
+
         int getYLength() {
             return cellList.length;
         }
-        
+
         BattleCell getCell(int x, int y) {
             return cellList[x][y];
         }
-        
+
         public BattleBoard(int columnNumber, int lineNumber) {
             // initialise la liste des cellules
             cellList = new BattleCell[lineNumber][columnNumber];
-            for(int x=0; x<lineNumber; x++) {
-                for(int y=0; y<columnNumber; y++) {
+            for (int x = 0; x < lineNumber; x++) {
+                for (int y = 0; y < columnNumber; y++) {
                     cellList[x][y] = new BattleCell();
                 }
             }
-            
+
             // ajoute les bateau
             for (int i = 0; i < shipList.length; i++) {  // boucle sur les bateau
                 int shipLength = shipList[i];       // récupère la longueur du bateau (nombre de cases)
