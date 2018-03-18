@@ -11,8 +11,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**
- * Simple battle ship
- * Cette version implémente seulement une grille 3x3 
+ * Ajout du changement de couleur des cases via un clique
  */
 public class BattleShip3 extends Application {
 
