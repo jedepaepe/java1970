@@ -4,7 +4,7 @@
  * il s'agit en fait d'un utilisation des lambda expressions décrites
  * à la section 15.6 Simplifying Event Handling Using Lambda Expressions, page 597
 */
-package eu.epfc.java1970.lesson24.preparation;
+package eu.epfc.java1970.lesson24.bevent;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
