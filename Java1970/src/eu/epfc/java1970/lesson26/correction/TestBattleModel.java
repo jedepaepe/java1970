@@ -15,12 +15,6 @@ public class TestBattleModel {
         battleModel.createShip(1, Ship.Orientation.HORIZONTAL, 4, 4);
         battleModel.setPlay();
         
-        CellState c = CellState.BOMB_WATER;
-        CellState[][] cells = new CellState[2][2];
-        cells[0][0] = CellState.BOMB_WATER;
-        cells[0][1] = CellState.SHIP;
-        cells[1][0] = CellState.SUNK;
-        cells[1][1] = CellState.TOUCH;
         System.out.println("Fire 0,0");
         battleModel.fire(0, 0);
         System.out.println("Done? " + battleModel.isDone());
