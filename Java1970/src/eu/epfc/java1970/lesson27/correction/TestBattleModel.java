@@ -1,17 +1,17 @@
 /*
 This is a stupid class to test the battle model
  */
-package eu.epfc.java1970.lesson26.correction;
+package eu.epfc.java1970.lesson27.correction;
 
 /**
- *
- * @author FHA576
+ * point d'entrée du programme (de test)
  */
 public class TestBattleModel {
     public static void main(String[] args) {
         BattleModel battleModel = new BattleModel(5);
         battleModel.createShip(1, Ship.Orientation.HORIZONTAL, 0, 0);
         battleModel.createShip(1, Ship.Orientation.HORIZONTAL, 2, 2);
+        battleModel.createShip(1, Ship.Orientation.HORIZONTAL, 4, 4);
         battleModel.setPlay();
         
         System.out.println("Fire 0,0");
