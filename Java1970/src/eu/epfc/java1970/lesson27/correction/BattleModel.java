@@ -45,7 +45,7 @@ public class BattleModel {
     public State getState() {
         return state;
     }
-
+    
     /**
      * create a ship in the friend grid
      * @param size : size of the ship
@@ -98,11 +98,7 @@ public class BattleModel {
     }
     
     public boolean isDone() {
-        if(state == State.DONE) return true;
-        else {
-            // check if it is done
-            return false;
-        }
+        return state == State.DONE; // check if it is done
     }
     
     public Player getWinner() {

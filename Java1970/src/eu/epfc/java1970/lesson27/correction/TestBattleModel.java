@@ -27,7 +27,7 @@ public class TestBattleModel {
             System.out.println("Erreur:\n\t" + ex.getMessage() + "\nImpossible de jouer, sorry");
         }
     }
-
+    
     private static void showCells(CellState[][] cells) {
         StringBuilder sb = new StringBuilder();
         for (int l = 0; l < cells.length; l++) {
