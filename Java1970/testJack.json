@@ -1,0 +1,1 @@
+{"size":10,"ships":[{"x":3,"y":3,"type":{"name":"a","size":1},"orientation":"HORIZONTAL"},{"x":4,"y":4,"type":{"name":"b","size":2},"orientation":"HORIZONTAL"}],"bombs":[{"x":0,"y":0},{"x":1,"y":1}]}
