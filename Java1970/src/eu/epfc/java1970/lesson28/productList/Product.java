@@ -66,4 +66,9 @@ public class Product {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" + "label=" + label + ", price=" + price + ", unit=" + unit + ", description=" + description + '}';
+    }
+
 }
