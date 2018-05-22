@@ -37,7 +37,7 @@ public class DemoSelect {
         // demande à mysql d'exécuter la requête SQL
         // et retourne un resultSet : un ensemble de résultats,
         // cet objet sert à récupérer les résultats de la requête SQL
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM product");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM produit");
         
         // crée une liste de produits (vide)
         ArrayList<Product> products = new ArrayList<>();
@@ -45,10 +45,10 @@ public class DemoSelect {
         // récupère les records
         while(resultSet.next()) {               // tant qu'il y a un une record
             Product product = new Product(      // crée un nouveau Product
-                    resultSet.getString(1), 
-                    resultSet.getDouble(2), 
-                    resultSet.getString(3), 
-                    resultSet.getString(4)
+                    resultSet.getString(1),     // le label
+                    resultSet.getDouble(2),     // le prix
+                    resultSet.getString(3),     // l'unité
+                    resultSet.getString(4)      // la description
             );
             products.add(product);              // ajoute un Product à la liste
         }
