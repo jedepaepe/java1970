@@ -10,13 +10,13 @@ package eu.epfc.java1970.lesson30.databases;
 import eu.epfc.java1970.lesson28.productList.Product;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  */
-public class DemoSelect {
+public class DemoPreparedStatement {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         String label = "petit coca";
         Class.forName("com.mysql.jdbc.Driver");     // charge la classe Driver du pilote de mysql
@@ -32,14 +32,13 @@ public class DemoSelect {
         //                                                   utilse JDBC
         
         // crée une statement : un objet pour gérer l'instruction SQL
-        Statement statement = connection.createStatement();
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM produit WHERE label = ?");
+
+        // injecte la variable dans la preparedStatement
+        preparedStatement.setString(1, label);
         
-        // demande à mysql d'exécuter la requête SQL
-        // et retourne un resultSet : un ensemble de résultats,
-        // cet objet sert à récupérer les résultats de la requête SQL
-        String query = "SELECT * FROM produit WHERE label = '" + label + "'";
-        System.out.println(query);
-        ResultSet resultSet = statement.executeQuery(query);
+        // exécute la requête
+        ResultSet resultSet = preparedStatement.executeQuery();
         
         // System.out.println(resultSet.getString(1)); // crashe le programme
         
