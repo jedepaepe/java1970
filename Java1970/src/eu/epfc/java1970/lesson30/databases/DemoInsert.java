@@ -49,7 +49,7 @@ public class DemoInsert {
                 "root", 
                 "root");
 
-        // crée une statement : un objet pour gérer l'instruction SQL
+        // crée une statement : un objet pour gérer l'instruction SQL & demande à mysql de précompiler la requête SQL
         PreparedStatement preparedStatement
                 = connection.prepareStatement("INSERT INTO produit VALUES(?, ?, ?, ?)");
 

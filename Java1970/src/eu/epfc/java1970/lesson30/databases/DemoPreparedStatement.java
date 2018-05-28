@@ -18,29 +18,26 @@ import java.sql.SQLException;
  */
 public class DemoPreparedStatement {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        // variable pour simuler une entrée de l'utilisateur
         String label = "petit coca";
-        Class.forName("com.mysql.jdbc.Driver");     // charge la classe Driver du pilote de mysql
+
+        // (1) charge la classe Driver du pilote de mysql
+        Class.forName("com.mysql.jdbc.Driver");     
         
-        // crée une connection (la connection avec mysql) 
+        // (2) crée une connection (la connection avec mysql) 
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/stock", "root", "root");
-        //                                                   |    |       |         |        |       |
-        //                                                   |    |       |         |        |       password
-        //                                                   |    |       |         |        user
-        //                                                   |    |       |         database (optionnel)
-        //                                                   |    |       server
-        //                                                   |    dbengine
-        //                                                   utilse JDBC
         
-        // crée une statement : un objet pour gérer l'instruction SQL
+        // (3) crée une statement : un objet pour gérer l'instruction SQL & demande à mysql de précompiler la requête SQL
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM produit WHERE label = ?");
 
-        // injecte la variable dans la preparedStatement
+        // (4) injecte la variable dans la preparedStatement
         preparedStatement.setString(1, label);
-        
-        // exécute la requête
+        //                          |  |
+        //                          |  la valeur à injecter dans la requête SQL (à la place du ?)
+        //                          le premier ?
+
+        // (5) exécute la requête
         ResultSet resultSet = preparedStatement.executeQuery();
-        
-        // System.out.println(resultSet.getString(1)); // crashe le programme
         
         if(resultSet.first()) {
             Product product = new Product(      // crée un nouveau Product
