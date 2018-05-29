@@ -73,6 +73,7 @@ public class Products {
                 }
             }
         }
+        System.out.println("Bye bye");
     }
 
     /**
@@ -92,22 +93,24 @@ public class Products {
      * @throws SQLException
      */
     private static int listAllProducts() throws SQLException {
+        System.out.println("");
         int nrRow = 0;
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM produit");
-            System.out.printf("%5s | %16s | %8s | %8s | %64s\n", "index", "label", "price", "unit", "description");
+            System.out.printf("%5s | %12s | %8s | %8s | %24s\n", "index", "label", "price", "unit", "description");
             while (resultSet.next()) {
                 String label = resultSet.getString(1);
                 String price = resultSet.getString(2);
                 String unit = resultSet.getString(3);
                 String description = resultSet.getString(4);
-                System.out.printf("%5d | %16s | %8s | %8s | %64s\n", nrRow, label, price, unit, description);
+                System.out.printf("%5d | %12s | %8s | %8s | %24s\n", nrRow, label, price, unit, description);
                 nrRow++;
             }
         }
         if (nrRow == 0) {
             System.out.println("Aucun produit dans la DB");
         }
+        System.out.println("");
         return nrRow;
     }
 
