@@ -46,7 +46,7 @@ public class DemoCounter extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Tracker</h1>");
-            out.println("Vous avez vu cette page " + counter + " fois");
+            out.println("<p>Vous avez vu cette page " + counter + " fois</p>");
             out.println("</body>");
             out.println("</html>");
         }
